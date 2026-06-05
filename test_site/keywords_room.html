@@ -48,32 +48,24 @@
   </head>
 <body>
 <input type="text" id="inputText" placeholder="write here password">
-  <button onclick="showOutput()">send</button>
-  <p id="OutPut"></p>
-<script>
-    function showOutput() {
-    const input = document.getElementById('inputText').value;
-    const outputDiv = document.getElementById('output');
-    outputDiv.innerHTML = '';
-  
-    let redirectUrl;if (input.includes('readme')) {
-      redirectUrl = 'https://koppepan-orange-game.github.io/game_daisuki/readme.txt';
-    } else if (input.includes('koppepandesu')) {
-      redirectUrl = 'https://koppepan-orange.github.io/test_site/homepage.html';
-    } else {
-      'パスワードが違います。';
-    }
-    const link = document.createElement('a')
-    link.href = redirectUrl;
-    link.textContent = 'success!';
-    link.target = '_blank'; // 新しいタブで開く
-    outputDiv.appendChild(link)
-    }
-</script>
+<button onclick="showOutput()">send</button>
+<p id="OutPut"></p>
 <br><br>
 <div class="not-moving-div"></div>
 <div class="moving-div"></div>
 <script>
+    function showOutput() {
+        let input = document.getElementById('inputText').value;
+        let outputDiv = document.getElementById('OutPut');
+    
+        if(input.includes('readme')){
+            outputDiv.innerHTML = '<a href="https://koppepan-orange-game.github.io/game_daisuki/readme.txt">ocha nigoshe ttene</a>';
+        }else if(input.includes('koppepandesu')){
+            outputDiv.innerHTML = '<a href="https://koppepan-orange.github.io/test_site/homepage.html">success!</a>';
+        }else{
+            outputDiv.textContent = 'パスワードが違います。';
+        }
+    }
   let x = 0;
     let y = 0
   $(document).keydown(function(e) {
